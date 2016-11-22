@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="description" content="website description" />
+    <meta name="keywords" content="website keywords, website keywords" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="Content/MAKhome/css/style.css" />
+    <script type="text/javascript" src="Content/MAKhome/js/modernizr-1.5.min.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+    <div id="site_content">
+        <ul id="images">
+            <li><img src="Content/MAKhome/images/1.jpg" width="600" height="300"  /></li>
+            <li><img src="Content/MAKhome/images/2.jpg" width="600" height="300"  /></li>
+            <li><img src="Content/MAKhome/images/3.jpg" width="600" height="300"  /></li>
+            <li><img src="Content/MAKhome/images/4.jpg" width="600" height="300"  /></li>
+            <li><img src="Content/MAKhome/images/5.jpg" width="600" height="300"  /></li>
+            <li><img src="Content/MAKhome/images/6.jpg" width="600" height="300"  /></li>
+        </ul>
+
+        <div id="sidebar_container">
+            <div class="sidebar">
+                <h3>Latest News</h3>
+                <h4>New Website Launched</h4>
+                <h5>January 1st, 2012</h5>
+                <p>2012 sees the redesign of our website. Take a look around and let us know what you think.<br /><a href="#">Read more</a></p>
+                <h4>20% Discount</h4>
+                <h5>March 1st, 2012</h5>
+                <p>We are offering a 20% discount to all new customers.<br /><a href="#">Read more</a></p>
+            </div>
+        </div>
+
+
+        <div class="content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+    </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    <p>&nbsp;</p>
+    <!-- javascript at the bottom for fast page loading -->
+    <script type="text/javascript" src="Content/MAKhome/js/jquery.js"></script>
+    <script type="text/javascript" src="Content/MAKhome/js/jquery.easing-sooper.js"></script>
+    <script type="text/javascript" src="Content/MAKhome/js/jquery.sooperfish.js"></script>
+    <script type="text/javascript" src="Content/MAKhome/js/jquery.kwicks-1.5.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#images').kwicks({
+                max: 600,
+                spacing: 2
+            });
+            $('ul.sf-menu').sooperfish();
+        });
+    </script> 
+</body>
+</html>
